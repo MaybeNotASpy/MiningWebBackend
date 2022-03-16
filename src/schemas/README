@@ -1,0 +1,3 @@
+This folder is for creating Pydantic models.
+It is suggested you use Tortoise-orm's pydantic_model_creator
+function if the model is expected to relate to a database.
