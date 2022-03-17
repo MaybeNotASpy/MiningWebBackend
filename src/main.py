@@ -24,6 +24,18 @@ app.add_middleware(         # Necessary for cross-origin requests
     allow_headers=["*"],
 )
 
+
+"""
+Router Setup
+"""
+# This MUST come after Tortoise.init_models since this triggers pydantic setup.
+# Tortoise-ORM must be initialized before pydantic.
+from src.routes import users, images
+
+app.include_router(users.router)        # Setup HTTP requests involving users
+app.include_router(images.router)       # '' '' for images
+
+
 """
 Event Registrations
 """

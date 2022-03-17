@@ -25,11 +25,11 @@ async def create_image(image, current_user) -> ImageOutSchema:
 Retrieve
 """
 # Retrieves all images from the DB.
-async def get_notes() -> ImageOutSchema:
+async def get_images() -> ImageOutSchema:
     return await ImageOutSchema.from_queryset(Images.all())
 
 # Retrieves a specific image from the DB.
-async def get_note(image_id: int) -> ImageOutSchema:
+async def get_image(image_id: int) -> ImageOutSchema:
     return await ImageOutSchema.from_queryset_single(Images.get(id=image_id))
 
 
