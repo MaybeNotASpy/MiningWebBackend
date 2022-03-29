@@ -16,15 +16,6 @@ Tortoise.init_models(      # Allows serializers to read model relationships
 
 app = FastAPI()             # Initialize FastAPI
 
-app.add_middleware(         # Necessary for cross-origin requests
-    CORSMiddleware,
-    allow_origins=["http://localhost:8080"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-
 """
 Router Setup
 """
@@ -41,6 +32,16 @@ Event Registrations
 """
 # Handles the tortoise-orm models and database connection
 register_tortoise(app, config=TORTOISE_ORM, generate_schemas=False)
+
+app.add_middleware(         # Necessary for cross-origin requests
+    CORSMiddleware,
+    allow_origin_regex='http[s]?:\/\/.*\.?localhost\:?[\d]*',
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+    expose_headers=["*"],
+)
+
 
 
 """
