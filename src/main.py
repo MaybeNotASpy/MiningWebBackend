@@ -31,7 +31,7 @@ app.include_router(images.router)       # '' '' for images
 Event Registrations
 """
 # Handles the tortoise-orm models and database connection
-register_tortoise(app, config=TORTOISE_ORM, generate_schemas=False)
+register_tortoise(app, config=TORTOISE_ORM, generate_schemas=True)
 
 app.add_middleware(         # Necessary for cross-origin requests
     CORSMiddleware,
