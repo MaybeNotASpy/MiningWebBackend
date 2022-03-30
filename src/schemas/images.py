@@ -11,7 +11,7 @@ ImageInSchema = pydantic_model_creator(
 
 # For retrieving images
 ImageOutSchema = pydantic_model_creator(
-    Images, name="Note", exclude =[
+    Images, name="Image", exclude =[
       "modified_at", "author.password", "author.created_at", "author.modified_at"
     ]
 )
